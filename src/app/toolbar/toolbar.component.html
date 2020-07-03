@@ -1,0 +1,37 @@
+<mat-toolbar color="primary" class="mat-elevtion-z4">
+   <mat-toolbar-row>
+      <span>
+         <a [routerLink]="['home']" mat-button>
+            <span>{{ title }}</span>
+         </a>
+         <a mat-button [routerLink]="['home']" routerLinkActive="active">
+            Home
+         </a>
+         <a
+            mat-button
+            [routerLink]="['details', '1']"
+            routerLinkActive="active"
+         >
+            Details
+         </a>
+         <a
+            mat-button
+            [routerLink]="['products', 'create']"
+            routerLinkActive="active"
+            *ngIf="isAdmin"
+         >
+            Create Product
+         </a>
+         <a
+            mat-button
+            [routerLink]="['products', 'list']"
+            routerLinkActive="active"
+            *ngIf="isAdmin"
+         >
+            Product List
+         </a>
+      </span>
+      <span class="spacer"></span>
+      <app-search #search></app-search>
+   </mat-toolbar-row>
+</mat-toolbar>

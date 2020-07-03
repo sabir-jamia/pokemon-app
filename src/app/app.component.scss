@@ -1,0 +1,11 @@
+.app-content {
+   position: relative;
+   padding: 5rem calc(5vw) 0px;
+   max-width: 90vw;
+}
+
+.loader-container {
+   position: fixed;
+   top: 50vh;
+   left: calc(50vw - 20px);
+}

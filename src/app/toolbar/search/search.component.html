@@ -1,0 +1,24 @@
+<form (ngSubmit)="doSearch()" role="search" novalidate>
+   <input
+      type="search"
+      class="search-box error"
+      placeholder="Search Pokémon"
+      name="search"
+      [(ngModel)]="searchInput"
+      minlength="3"
+      pattern="[a-zA-Z]*"
+      #search="ngModel"
+   />
+
+   <ng-container *ngIf="search.invalid">
+      <span *ngIf="search.errors.minlength" class="mat-error">
+         Minimum 3 chracters are required
+      </span>
+      <span
+         *ngIf="!search.errors.minlength && search.errors.pattern"
+         class="mat-error"
+      >
+         Search term contabins only alphabets
+      </span>
+   </ng-container>
+</form>

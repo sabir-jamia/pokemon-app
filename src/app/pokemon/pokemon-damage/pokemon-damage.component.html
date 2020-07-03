@@ -1,0 +1,16 @@
+<mat-toolbar class="secondary-toolbar" color="primary">
+   <span><h4 class="mat-h4">Damage When Attacked</h4></span>
+</mat-toolbar>
+<mat-grid-list *ngIf="types$ | async; let types" cols="4" rowHeight="4em">
+   <ng-container *ngFor="let type of types">
+      <mat-grid-tile
+         *ngFor="let damage of type.damage_relations.double_damage_from"
+      >
+         <app-badge
+            [badgeText]="damage.name"
+            [stylesClass]="'badge-styles-' + damage.name"
+         >
+         </app-badge>
+      </mat-grid-tile>
+   </ng-container>
+</mat-grid-list>

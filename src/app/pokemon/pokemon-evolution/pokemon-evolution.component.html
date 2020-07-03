@@ -1,0 +1,18 @@
+<mat-toolbar class="secondary-toolbar" color="primary">
+   <span><h4 class="mat-h4">Evolutions</h4></span>
+</mat-toolbar>
+<mat-grid-list cols="3">
+   <mat-grid-tile>
+      <mat-card>
+         <img mat-card-image [src]="details.sprites.front_default" />
+      </mat-card>
+   </mat-grid-tile>
+   <mat-grid-tile>
+      <mat-icon color="primary" class="right-arrow">arrow_forward</mat-icon>
+   </mat-grid-tile>
+   <mat-grid-tile>
+      <mat-card *ngIf="evoledPokemon$ | async; let evoledPokemon">
+         <img mat-card-image [src]="evoledPokemon.sprites.front_default" />
+      </mat-card>
+   </mat-grid-tile>
+</mat-grid-list>

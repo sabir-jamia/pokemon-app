@@ -1,0 +1,17 @@
+<mat-grid-list cols="3" rowHeight="28">
+   <ng-container *ngFor="let stat of stats">
+      <mat-grid-tile colspan="1">
+         <section>
+            <h4>{{ stat.stat.name | titlecase }}</h4>
+         </section>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="2">
+         <svg height="25" class="full-width">
+            <rect class="stat-rect-fill" [style.width.%]="stat.base_stat" />
+            <text x="10" y="18" font-size="15" fill="white">
+               {{ stat.base_stat }}
+            </text>
+         </svg>
+      </mat-grid-tile>
+   </ng-container>
+</mat-grid-list>

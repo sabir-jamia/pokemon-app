@@ -1,0 +1,8 @@
+@mixin pokemon-type-theme($color) {
+   .stat-rect-fill {
+      fill: mat-color($color);
+   }
+
+   $type-theme: mat-light-theme($color, $color, $color);
+   @include angular-material-theme($type-theme);
+}

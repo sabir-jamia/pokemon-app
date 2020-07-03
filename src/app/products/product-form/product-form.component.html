@@ -1,0 +1,168 @@
+<mat-card>
+   <mat-card-header>
+      <mat-card-title>
+         Product Form
+      </mat-card-title>
+   </mat-card-header>
+   <form [formGroup]="form" (ngSubmit)="save()" novalidate>
+      <mat-card-content>
+         <mat-form-field class="full-width">
+            <mat-label>Name</mat-label>
+            <input
+               matInput
+               type="text"
+               placeholder="Name"
+               formControlName="name"
+            />
+            <mat-error *ngIf="form.get('name').getError('required')">
+               Name is required
+            </mat-error>
+            <mat-error
+               *ngIf="
+                  form.get('name').getError('pattern') &&
+                  !form.get('name').getError('required')
+               "
+            >
+               Name is not alphanumeric
+            </mat-error>
+            <mat-error
+               *ngIf="
+                  form.get('name').getError('minlength') &&
+                  !form.get('name').getError('required') &&
+                  !form.get('name').getError('pattern')
+               "
+            >
+               Name is too short
+            </mat-error>
+         </mat-form-field>
+         <mat-form-field class="full-width" [style.bottom.px]="15">
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description"></textarea>
+            <mat-error *ngIf="form.get('description').getError('required')">
+               Description is required
+            </mat-error>
+            <mat-error
+               *ngIf="
+                  form.get('description').getError('pattern') &&
+                  !form.get('description').getError('required')
+               "
+            >
+               Description is not alphanumeric
+            </mat-error>
+            <mat-error
+               *ngIf="
+                  form.get('description').getError('minlength') &&
+                  !form.get('description').getError('required') &&
+                  !form.get('description').getError('pattern')
+               "
+            >
+               Description is too short
+            </mat-error>
+         </mat-form-field>
+         <mat-form-field class="full-width">
+            <mat-label>Price</mat-label>
+            <input
+               matInput
+               type="text"
+               placeholder="Price"
+               formControlName="price"
+            />
+            <mat-error *ngIf="form.get('price').getError('required')">
+               Price is required
+            </mat-error>
+            <mat-error
+               *ngIf="
+                  form.get('price').getError('pattern') &&
+                  !form.get('price').getError('required')
+               "
+            >
+               Price is not valid
+            </mat-error>
+         </mat-form-field>
+         <mat-form-field class="full-width">
+            <mat-select placeholder="Category" formControlName="category">
+               <mat-option
+                  *ngFor="let category of categories"
+                  [value]="category"
+               >
+                  {{ category }}
+               </mat-option>
+            </mat-select>
+            <mat-error *ngIf="form.get('category').getError('required')">
+               Category is required
+            </mat-error>
+         </mat-form-field>
+         <mat-form-field class="full-width">
+            <input
+               matInput
+               type="text"
+               placeholder="Image URL"
+               formControlName="imageUrl"
+            />
+            <mat-error *ngIf="form.get('imageUrl').getError('required')">
+               Image URL is required
+            </mat-error>
+            <mat-error
+               *ngIf="
+                  form.get('imageUrl').getError('pattern') &&
+                  !form.get('imageUrl').getError('required')
+               "
+            >
+               Image URL is not a valid url
+            </mat-error>
+         </mat-form-field>
+         <mat-form-field class="full-width">
+            <input
+               matInput
+               type="tel"
+               placeholder="Phone Number"
+               formControlName="phoneNumber"
+            />
+            <mat-error *ngIf="form.get('phoneNumber').getError('required')">
+               Phone Number is required
+            </mat-error>
+            <mat-error
+               *ngIf="
+                  form.get('phoneNumber').getError('maxlength') &&
+                  !form.get('phoneNumber').getError('required')
+               "
+            >
+               Phone Number too long
+            </mat-error>
+            <mat-error
+               *ngIf="
+                  form.get('phoneNumber').getError('pattern') &&
+                  !form.get('phoneNumber').getError('required') &&
+                  !form.get('phoneNumber').getError('maxlength')
+               "
+            >
+               Phone Number is not valid
+            </mat-error>
+         </mat-form-field>
+         <mat-form-field class="full-width">
+            <mat-select placeholder="Select" formControlName="select">
+               <mat-option value="mobile">
+                  Mobile
+               </mat-option>
+               <mat-option value="landline">
+                  Landline
+               </mat-option>
+            </mat-select>
+         </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions>
+         <button mat-button type="button" mat-raised-button (click)="reset()">
+            Reset
+         </button>
+         <button
+            mat-button
+            type="submit"
+            mat-raised-button
+            color="primary"
+            [disabled]="form.invalid"
+         >
+            Save
+         </button>
+      </mat-card-actions>
+   </form>
+</mat-card>

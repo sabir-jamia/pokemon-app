@@ -1,0 +1,11 @@
+mat-form-field {
+   flex: 0 0 45%;
+}
+
+form {
+   mat-card-content {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+   }
+}

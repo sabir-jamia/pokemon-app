@@ -1,0 +1,84 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "First Prod",
+      "description": "This is first product ",
+      "price": "1.22",
+      "category": "Cloths",
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+      "phoneNumber": "123456789",
+      "select": "mobile"
+    },
+    {
+      "id": "2",
+      "name": "Second Prodcut",
+      "description": "This is blanckets ",
+      "price": "7.54",
+      "category": "Blankets",
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+      "phoneNumber": "123456789",
+      "select": "mobile"
+    },
+    {
+      "id": "3",
+      "name": "Third Prodcut",
+      "description": "This is third product ",
+      "price": "10.67",
+      "category": "Electronics",
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+      "phoneNumber": "123456789",
+      "select": "landline"
+    },
+    {
+      "id": "ijcz_Q0",
+      "name": "ssss",
+      "description": "sssss",
+      "price": "1.22",
+      "category": "Cloths",
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+      "phoneNumber": "1111222",
+      "select": "mobile"
+    },
+    {
+      "id": "iVfKiMX",
+      "name": "dddd",
+      "description": "ddd",
+      "price": "1.22",
+      "category": "Cloths",
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+      "phoneNumber": "1111222",
+      "select": "landline"
+    },
+    {
+      "id": "FKZkK3L",
+      "name": "ssss",
+      "description": "sssss",
+      "price": "1.22",
+      "category": "Cloths",
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+      "phoneNumber": "1111222",
+      "select": "landline"
+    },
+    {
+      "id": "o96JQ_a",
+      "name": "ddddd",
+      "description": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "price": "1.22",
+      "category": "Blanket",
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+      "phoneNumber": "1111222",
+      "select": "landline"
+    },
+    {
+      "id": "OxtjtlK",
+      "name": "sss",
+      "description": "sss",
+      "price": "1.22",
+      "category": "Cloths",
+      "imageUrl": "https://www.roadrunnerrecords.com/sites/g/files/g2000005056/f/styles/profile_page_avatar/public/Sample-image10-highres.jpg",
+      "phoneNumber": "11111111",
+      "select": "landline"
+    }
+  ]
+}
