@@ -1,37 +1,41 @@
-<mat-toolbar class="secondary-toolbar" color="primary">
+<mat-toolbar class="secondary-toolbar">
    <span><h4 class="mat-h4">Profile</h4></span>
 </mat-toolbar>
-<mat-grid-list cols="4" rowHeight="50" *ngIf="species$ | async; let species">
-   <mat-grid-tile><p class="mat-body-strong">Height</p> </mat-grid-tile>
-   <mat-grid-tile>{{ details.height }}</mat-grid-tile>
-   <mat-grid-tile><p class="mat-body-strong">Weight</p> </mat-grid-tile>
-   <mat-grid-tile>{{ details.weight }}</mat-grid-tile>
-   <mat-grid-tile><p class="mat-body-strong">Catch Rate</p> </mat-grid-tile>
-   <mat-grid-tile>
-      {{ species.capture_rate / 255 | percent: '.2-2' }}
-   </mat-grid-tile>
-   <mat-grid-tile>
-      <p class="mat-body-strong">Gender Ratio</p>
-   </mat-grid-tile>
-   <mat-grid-tile>{{ species.gender_rate | gender }}</mat-grid-tile>
-   <mat-grid-tile><p class="mat-body-strong">Egg Groups</p> </mat-grid-tile>
-   <mat-grid-tile>
-      <ng-container
-         *ngFor="let eggGroup of species.egg_groups; let last = last"
-      >
-         {{ eggGroup.name | titlecase }}
-         {{ last ? '' : ',' }}
-      </ng-container>
-   </mat-grid-tile>
-   <mat-grid-tile><p class="mat-body-strong">Hatch Steps</p> </mat-grid-tile>
-   <mat-grid-tile>{{ species.hatch_counter * 255 }}</mat-grid-tile>
-   <mat-grid-tile><p class="mat-body-strong">Abilities</p> </mat-grid-tile>
-   <mat-grid-tile>
-      <ng-container *ngFor="let ability of details.abilities; let last = last">
-         {{ ability.ability.name | titlecase }}
-         {{ last ? '' : ',' }}
-      </ng-container>
-   </mat-grid-tile>
-   <mat-grid-tile><p class="mat-body-strong">EVs</p> </mat-grid-tile>
-   <mat-grid-tile>{{ details.stats | effortValue }}</mat-grid-tile>
-</mat-grid-list>
+<div style="padding: 2rem 1rem;">
+   <mat-grid-list cols="4" rowHeight="50" *ngIf="species$ | async; let species">
+      <mat-grid-tile><p class="mat-body-strong">Height</p> </mat-grid-tile>
+      <mat-grid-tile>{{ details.height }}</mat-grid-tile>
+      <mat-grid-tile><p class="mat-body-strong">Weight</p> </mat-grid-tile>
+      <mat-grid-tile>{{ details.weight }}</mat-grid-tile>
+      <mat-grid-tile><p class="mat-body-strong">Catch Rate</p> </mat-grid-tile>
+      <mat-grid-tile>
+         {{ species.capture_rate / 255 | percent: '.2-2' }}
+      </mat-grid-tile>
+      <mat-grid-tile>
+         <p class="mat-body-strong">Gender Ratio</p>
+      </mat-grid-tile>
+      <mat-grid-tile>{{ species.gender_rate | gender }}</mat-grid-tile>
+      <mat-grid-tile><p class="mat-body-strong">Egg Groups</p> </mat-grid-tile>
+      <mat-grid-tile>
+         <ng-container
+            *ngFor="let eggGroup of species.egg_groups; let last = last"
+         >
+            {{ eggGroup.name | titlecase }}
+            {{ last ? '' : ',' }}
+         </ng-container>
+      </mat-grid-tile>
+      <mat-grid-tile><p class="mat-body-strong">Hatch Steps</p> </mat-grid-tile>
+      <mat-grid-tile>{{ species.hatch_counter * 255 }}</mat-grid-tile>
+      <mat-grid-tile><p class="mat-body-strong">Abilities</p> </mat-grid-tile>
+      <mat-grid-tile>
+         <ng-container
+            *ngFor="let ability of details.abilities; let last = last"
+         >
+            {{ ability.ability.name | titlecase }}
+            {{ last ? '' : ',' }}
+         </ng-container>
+      </mat-grid-tile>
+      <mat-grid-tile><p class="mat-body-strong">EVs</p> </mat-grid-tile>
+      <mat-grid-tile>{{ details.stats | effortValue }}</mat-grid-tile>
+   </mat-grid-list>
+</div>

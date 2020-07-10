@@ -22,7 +22,7 @@ export class PokemonService {
 
    all(url?: string): Observable<Pokemon[]> {
       return this.httpClient.get<Pokemon[]>(url ? url : this.getUrl(), {
-         params: { limit: '30', offset: '0' },
+         params: { limit: '32', offset: '0' },
       });
    }
 

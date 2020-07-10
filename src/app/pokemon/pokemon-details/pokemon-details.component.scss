@@ -14,3 +14,15 @@ mat-grid-tile {
 app-badge {
    margin: 10px;
 }
+
+.pokemon-details {
+   margin: 16px 0;
+   border-radius: 4px;
+   border: 1px solid #efefef;
+   .content-row {
+      display: flex;
+      align-items: center;
+      align-content: flex-start;
+      padding: 2rem 1rem;
+   }
+}

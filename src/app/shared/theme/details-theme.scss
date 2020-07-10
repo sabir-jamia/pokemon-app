@@ -3,6 +3,19 @@
       fill: mat-color($color);
    }
 
-   $type-theme: mat-light-theme($color, $color, $color);
+   $type-theme: mat-light-theme(
+      (
+         color: (
+            primary: $color,
+            accent: $color,
+            warn: $color,
+         ),
+      )
+   );
+
    @include angular-material-theme($type-theme);
+
+   .mat-toolbar {
+      color: mat-color($color);
+   }
 }

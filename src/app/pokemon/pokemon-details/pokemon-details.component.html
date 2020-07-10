@@ -1,33 +1,31 @@
-<mat-card [ngClass]="themeClass" *ngIf="pokemonDetails">
-   <mat-grid-list cols="3" rowHeight="11:1">
-      <mat-grid-tile-header>
-         <mat-toolbar color="primary">
-            <h1 class="mat-display-1">
-               {{ pokemonDetails.name | titlecase }}
-            </h1>
-         </mat-toolbar>
-      </mat-grid-tile-header>
-      <mat-grid-tile colspan="3" rowspan="2">
-         <app-badge
-            *ngFor="let type of pokemonDetails.types"
-            [badgeText]="type.type.name"
-            [stylesClass]="'badge-styles-' + type.type.name"
-         >
-         </app-badge>
-      </mat-grid-tile>
-      <mat-grid-tile rowspan="5" colspan="1">
-         <mat-card>
+<div [ngClass]="themeClass" class="pokemon-details" *ngIf="pokemonDetails">
+   <div>
+      <mat-toolbar>
+         {{ pokemonDetails.name | titlecase }}
+         <div class="spacer"></div>
+         <div>
+            <app-badge
+               *ngFor="let type of pokemonDetails.types"
+               [badgeText]="type.type.name"
+               [stylesClass]="'badge-styles-' + type.type.name"
+            >
+            </app-badge>
+         </div>
+      </mat-toolbar>
+      <div class="content-row">
+         <mat-card style="flex: 1; max-width: 114px;">
             <img mat-card-image [src]="pokemonDetails.sprites.front_default" />
          </mat-card>
-      </mat-grid-tile>
-      <mat-grid-tile rowspan="6" colspan="2">
-         <app-pokemon-stats [stats]="pokemonDetails.stats"></app-pokemon-stats>
-      </mat-grid-tile>
-   </mat-grid-list>
+         <app-pokemon-stats
+            [stats]="pokemonDetails.stats"
+            style="flex: 2;"
+         ></app-pokemon-stats>
+      </div>
+   </div>
    <app-pokemon-profile [details]="pokemonDetails" [id]="pokemonDetails.id">
    </app-pokemon-profile>
    <app-pokemon-evolution [details]="pokemonDetails" [id]="pokemonDetails.id">
    </app-pokemon-evolution>
    <app-pokemon-damage [details]="pokemonDetails" [id]="pokemonDetails.id">
    </app-pokemon-damage>
-</mat-card>
+</div>

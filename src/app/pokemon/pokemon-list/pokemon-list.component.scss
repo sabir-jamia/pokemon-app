@@ -1,6 +1,22 @@
-mat-card {
-   :hover {
+.pokemon-card {
+   border: 1px solid #efefef;
+   margin: 0.5rem;
+   position: relative;
+
+   &:hover {
       cursor: pointer;
+   }
+   &:hover::after {
+      content: attr(data-content);
+      position: absolute;
+      left: -1px;
+      bottom: -1px;
+      border: 1px #aaaaaa solid;
+      min-width: 100%;
+      padding: 6px 0;
+      text-align: center;
+      color: #ffffff;
+      background-color: hsla(0, 0%, 0%, 0.3);
    }
    img {
       margin-bottom: 0;
@@ -29,7 +45,7 @@ mat-card-content {
 }
 
 .hack-div {
-   box-sizing: content-box;
+   // box-sizing: content-box;
    visibility: hidden;
    flex: 0 0 90px;
    margin: 0.5rem;
@@ -38,10 +54,6 @@ mat-card-content {
 
 [mat-raised-button] {
    margin-left: 8px;
-}
-
-mat-card-actions {
-   display: flex;
 }
 
 .shape {
