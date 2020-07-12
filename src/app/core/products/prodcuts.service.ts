@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { environment } from '@env/environment';
 import { Product } from './products.model';
 import { Observable } from 'rxjs';
@@ -20,8 +20,12 @@ export class ProdcutsService {
       return `${this.getUrl()}/${id}`;
    }
 
-   all(): Observable<Product[]> {
-      return this.httpClient.get<Product[]>(this.getUrl());
+   all(page: number): Observable<HttpResponse<Product[]>> {
+      const limit = environment.perPageLimit;
+      return this.httpClient.get<Product[]>(this.getUrl(), {
+         params: { _limit: String(limit), _page: String(page) },
+         observe: 'response',
+      });
    }
 
    load(productId: string) {

@@ -20,9 +20,11 @@ export class PokemonService {
       return `${this.getUrl()}/${id}`;
    }
 
-   all(url?: string): Observable<Pokemon[]> {
-      return this.httpClient.get<Pokemon[]>(url ? url : this.getUrl(), {
-         params: { limit: '32', offset: '0' },
+   all(page: number): Observable<Pokemon[]> {
+      const limit = environment.perPageLimit;
+      const offset = (page - 1) * limit;
+      return this.httpClient.get<Pokemon[]>(this.getUrl(), {
+         params: { offset: String(offset), limit: String(limit) },
       });
    }
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonService } from '../core/pokemon/pokemon.service';
 import { Observable, forkJoin } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, map } from 'rxjs/operators';
 
 @Component({
    selector: 'app-pokemon',
@@ -9,9 +9,9 @@ import { switchMap } from 'rxjs/operators';
    styleUrls: ['./pokemon.component.scss'],
 })
 export class PokemonComponent implements OnInit {
-   pokemons$: Observable<any>;
-   pokemonDetails$: Observable<any>;
    url: string;
+   page = 1;
+   pokemonList$: Observable<any>;
 
    constructor(private pokemonService: PokemonService) {}
 
@@ -19,17 +19,20 @@ export class PokemonComponent implements OnInit {
       this.loadPokemons();
    }
 
-   next(pokemons) {
-      this.loadPokemons(pokemons.next);
+   next() {
+      this.page++;
+      this.loadPokemons();
    }
 
-   previous(pokemons) {
-      this.loadPokemons(pokemons.previous);
+   previous() {
+      this.page--;
+      this.loadPokemons();
    }
 
-   loadPokemons(pokemonUrl: string = null) {
-      this.pokemons$ = this.pokemonService.all(pokemonUrl);
-      this.pokemonDetails$ = this.pokemons$.pipe(
+   loadPokemons() {
+      const pokemons$: Observable<any> = this.pokemonService.all(this.page);
+
+      const pokemonDetails$: Observable<any> = pokemons$.pipe(
          switchMap(({ results }: any) =>
             forkJoin(
                results.map(({ url }) => {
@@ -38,6 +41,18 @@ export class PokemonComponent implements OnInit {
                })
             )
          )
+      );
+
+      this.pokemonList$ = forkJoin([pokemons$, pokemonDetails$]).pipe(
+         map(([pokemons, pokemonDetails]) => {
+            const results = pokemons.results.map((item, key) => ({
+               name: item.name,
+               url: `/details/${pokemonDetails[key].id}`,
+               imgSrc: pokemonDetails[key].sprites.front_default,
+            }));
+            const count = pokemons.count;
+            return { count, results };
+         })
       );
    }
 }

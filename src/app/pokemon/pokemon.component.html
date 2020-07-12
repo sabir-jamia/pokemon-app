@@ -1,7 +1,7 @@
 <app-pokemon-list
-   [pokemonDetails]="pokemonDetails$ | async"
-   [pokemons]="pokemons$ | async"
-   (nextClicked)="next($event)"
-   (previousClicked)="previous($event)"
+   [pokemonList]="pokemonList$ | async"
+   [page]="page"
+   (nextClicked)="next()"
+   (previousClicked)="previous()"
 >
 </app-pokemon-list>

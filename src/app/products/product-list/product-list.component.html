@@ -1,13 +1,6 @@
-<mat-card class="list-container">
-   <mat-card
-      *ngFor="let product of products$ | async"
-      class="mat-elevation-z4 inner-mat-card"
-      appImgCardHover
-      [routerLink]="['/products', product.id]"
-   >
-      <img mat-card-image [src]="product.imageUrl" alt="Photo of the product" />
-      <mat-card-content>
-         {{ product.name }}
-      </mat-card-content>
-   </mat-card>
-</mat-card>
+<app-card-list
+   [cards]="products$ | async"
+   [page]="page"
+   (nextClicked)="onNext()"
+   (previousClicked)="onPrevious()"
+></app-card-list>

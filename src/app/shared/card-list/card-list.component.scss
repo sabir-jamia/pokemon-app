@@ -1,0 +1,46 @@
+.card {
+   border: 1px solid #efefef;
+   margin: 0.5rem;
+   position: relative;
+
+   &:hover {
+      cursor: pointer;
+   }
+   &:hover::after {
+      content: attr(data-content);
+      position: absolute;
+      left: -1px;
+      bottom: -1px;
+      border: 1px #aaaaaa solid;
+      min-width: 100%;
+      padding: 6px 0;
+      text-align: center;
+      color: #ffffff;
+      background-color: hsla(0, 0%, 0%, 0.3);
+   }
+   img {
+      margin-bottom: 0;
+      width: 120px;
+      height: 120px;
+      max-width: 130px;
+      max-height: 130px;
+   }
+}
+
+.list-container {
+   display: flex;
+   flex-flow: row wrap;
+   justify-content: center;
+   margin-bottom: -32px;
+}
+
+.hack-div {
+   visibility: hidden;
+   flex: 0 0 90px;
+   margin: 0.5rem;
+   padding: 16px;
+}
+
+[mat-raised-button] {
+   margin-left: 8px;
+}

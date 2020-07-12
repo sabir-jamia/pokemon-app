@@ -6,12 +6,9 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
    styleUrls: ['./pokemon-list.component.scss'],
 })
 export class PokemonListComponent {
-   @Input() pokemons;
-   @Input() pokemonDetails;
+   @Input() pokemonList;
+   @Input() page: number;
+
    @Output() nextClicked = new EventEmitter();
    @Output() previousClicked = new EventEmitter();
-
-   test() {
-      console.log('Hello World!');
-   }
 }

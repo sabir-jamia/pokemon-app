@@ -1,0 +1,33 @@
+<div class="list-container" *ngIf="cards">
+   <div
+      *ngFor="let card of cards.results"
+      appImgCardHover
+      [routerLink]="card.url"
+      class="card"
+      [attr.data-content]="card.name"
+   >
+      <img [src]="card.imgSrc" alt="Photo of a pokemon" />
+   </div>
+   <div *ngFor="let i of [1, 2, 3, 4, 5, 6]" class="hack-div"></div>
+</div>
+<div *ngIf="cards" style="display: flex;">
+   <span class="spacer"></span>
+   <span [style.padding]="'35px'">
+      <button
+         [disabled]="page === 1"
+         (click)="previousClicked.emit()"
+         mat-raised-button
+         color="primary"
+      >
+         Previous
+      </button>
+      <button
+         [disabled]="page * perPageLimit >= cards.count"
+         (click)="nextClicked.emit()"
+         mat-raised-button
+         color="primary"
+      >
+         Next
+      </button>
+   </span>
+</div>

@@ -5,7 +5,8 @@
 export const environment = {
    production: false,
    apiEndPoint: 'https://pokeapi.co/api/v2/',
-   productApiEndPoint: 'http://localhost:3000/'
+   productApiEndPoint: 'http://localhost:3000/',
+   perPageLimit: 32,
 };
 
 /*

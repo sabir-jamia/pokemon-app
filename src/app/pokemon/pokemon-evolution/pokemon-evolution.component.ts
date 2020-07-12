@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { switchMap } from 'rxjs/operators';
 import { EvolutionService } from 'src/app/core/pokemon/evolution.service';
 import { PokemonService } from 'src/app/core/pokemon/pokemon.service';
-import { Observable } from 'rxjs';
+import { Observable, EMPTY } from 'rxjs';
 import { Pokemon } from 'src/app/core/pokemon/pokemon.models';
 
 @Component({
@@ -22,9 +22,11 @@ export class PokemonEvolutionComponent implements OnInit {
    ngOnInit(): void {
       this.evoledPokemon$ = this.evolutionService.load(this.id).pipe(
          switchMap((evolution) => {
-            const url = evolution.chain.evolves_to[0].species.url;
+            const url = evolution.chain.evolves_to.length
+               ? evolution.chain.evolves_to[0].species.url
+               : '';
             const matched = /\/([0-9]+)\/$/.exec(url);
-            return matched ? this.pokemonService.load(matched[1]) : null;
+            return matched ? this.pokemonService.load(matched[1]) : EMPTY;
          })
       );
    }

@@ -17,8 +17,8 @@ export class HttpCacheInterceptor implements HttpInterceptor {
       request: HttpRequest<unknown>,
       next: HttpHandler
    ): Observable<HttpEvent<unknown>> {
-      if (this.caches.has(request.url) && request.method === 'GET') {
-         return of(this.caches.get(request.url));
+      if (this.caches.has(request.urlWithParams) && request.method === 'GET') {
+         return of(this.caches.get(request.urlWithParams));
       }
 
       return next.handle(request).pipe(
@@ -26,9 +26,9 @@ export class HttpCacheInterceptor implements HttpInterceptor {
             if (
                event instanceof HttpResponse &&
                request.method === 'GET' &&
-               !request.url.includes('products')
+               !request.urlWithParams.includes('products')
             ) {
-               this.caches.set(request.url, event);
+               this.caches.set(request.urlWithParams, event);
             }
          })
       );
