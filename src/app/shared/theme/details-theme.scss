@@ -13,7 +13,7 @@
       )
    );
 
-   @include angular-material-theme($type-theme);
+   @include angular-material-color($type-theme);
 
    .mat-toolbar {
       color: mat-color($color);

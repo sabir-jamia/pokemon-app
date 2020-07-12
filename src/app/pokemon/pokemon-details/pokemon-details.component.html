@@ -13,9 +13,9 @@
          </div>
       </mat-toolbar>
       <div class="content-row">
-         <mat-card style="flex: 1; max-width: 114px;">
-            <img mat-card-image [src]="pokemonDetails.sprites.front_default" />
-         </mat-card>
+         <app-img-fallback
+            [src]="pokemonDetails.sprites.front_default"
+         ></app-img-fallback>
          <app-pokemon-stats
             [stats]="pokemonDetails.stats"
             style="flex: 2;"

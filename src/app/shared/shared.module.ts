@@ -6,6 +6,7 @@ import { BadgeComponent } from './badge/badge.component';
 import { Error404Component } from './error404/error404.component';
 import { RouterModule } from '@angular/router';
 import { CardListComponent } from './card-list/card-list.component';
+import { ImgFallbackComponent } from './img-fallback/img-fallback.component';
 
 @NgModule({
    exports: [
@@ -14,12 +15,14 @@ import { CardListComponent } from './card-list/card-list.component';
       ImgCardHoverDirective,
       BadgeComponent,
       CardListComponent,
+      ImgFallbackComponent,
    ],
    declarations: [
       ImgCardHoverDirective,
       BadgeComponent,
       Error404Component,
       CardListComponent,
+      ImgFallbackComponent,
    ],
    imports: [CommonModule, MaterialModule, RouterModule],
 })
