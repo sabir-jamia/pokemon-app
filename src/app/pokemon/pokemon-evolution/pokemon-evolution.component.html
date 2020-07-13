@@ -3,16 +3,20 @@
 </mat-toolbar>
 <mat-grid-list cols="3">
    <mat-grid-tile>
-      <app-img-fallback
-         [src]="details.sprites.front_default"
-      ></app-img-fallback>
+      <mat-card class="image-card">
+         <app-img-fallback
+            [src]="details.sprites.front_default"
+         ></app-img-fallback>
+      </mat-card>
    </mat-grid-tile>
    <mat-grid-tile>
       <mat-icon color="primary" class="right-arrow">arrow_forward</mat-icon>
    </mat-grid-tile>
    <mat-grid-tile *ngIf="evoledPokemon$ | async; let evoledPokemon">
-      <app-img-fallback
-         [src]="evoledPokemon.sprites.front_default"
-      ></app-img-fallback>
+      <mat-card class="image-card">
+         <app-img-fallback
+            [src]="evoledPokemon.sprites.front_default"
+         ></app-img-fallback>
+      </mat-card>
    </mat-grid-tile>
 </mat-grid-list>

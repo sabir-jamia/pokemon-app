@@ -3,10 +3,10 @@
       *ngFor="let card of cards.results"
       appImgCardHover
       [routerLink]="card.url"
-      class="card"
+      class="card image-card"
       [attr.data-content]="card.name"
    >
-      <img [src]="card.imgSrc" alt="Photo of a pokemon" />
+      <app-img-fallback [src]="card.imgSrc"></app-img-fallback>
    </div>
    <div *ngFor="let i of [1, 2, 3, 4, 5, 6]" class="hack-div"></div>
 </div>

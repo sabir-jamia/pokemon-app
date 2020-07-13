@@ -13,9 +13,11 @@
          </div>
       </mat-toolbar>
       <div class="content-row">
-         <app-img-fallback
-            [src]="pokemonDetails.sprites.front_default"
-         ></app-img-fallback>
+         <mat-card style="flex: 1;" class="image-card">
+            <app-img-fallback
+               [src]="pokemonDetails.sprites.front_default"
+            ></app-img-fallback>
+         </mat-card>
          <app-pokemon-stats
             [stats]="pokemonDetails.stats"
             style="flex: 2;"

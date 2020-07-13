@@ -6,5 +6,12 @@ import { Component, Input } from '@angular/core';
    styleUrls: ['./img-fallback.component.scss'],
 })
 export class ImgFallbackComponent {
-   @Input() src: string;
+   imgSrc: string;
+   @Input() set src(value: string) {
+      this.imgSrc = value;
+   }
+
+   onError() {
+      this.imgSrc = 'assets/images/pokemon-404.jpg';
+   }
 }

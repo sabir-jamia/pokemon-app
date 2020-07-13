@@ -44,7 +44,7 @@ $themes: (
    'psychic': $psychic,
    'rock': $rock,
    'steel': $steel,
-   'water': $water
+   'water': $water,
 );
 
 @each $themeName, $themeVariable in $themes {
@@ -56,4 +56,12 @@ $themes: (
       color: #fff;
       background-color: mat-color($themeVariable);
    }
+}
+
+.image-card {
+   margin-bottom: 0;
+   width: 120px;
+   height: 120px;
+   max-width: 130px;
+   max-height: 130px;
 }
