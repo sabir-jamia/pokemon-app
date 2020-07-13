@@ -22,28 +22,31 @@ export class ProductsComponent implements OnInit {
 
    ngOnInit(): void {
       this.product$ = this.route.params.pipe(
-         switchMap((params) =>
+         switchMap(params =>
             params.id ? this.productsService.load(params.id) : of(null)
          )
       );
    }
 
-   save(product: Product) {
-      if (product.id) {
-         this.update(product);
-      } else {
-         this.create(product);
-      }
+   save(products: Product[]) {
+      console.log(products);
+      products.forEach(product => {
+         if (product.id) {
+            this.update(product);
+         } else {
+            this.create(product);
+         }
+      });
    }
 
    create(product: Product) {
-      this.productsService.create(product).subscribe((res) => {
+      this.productsService.create(product).subscribe(res => {
          this.router.navigate(['products', 'list']);
       });
    }
 
    update(product: Product) {
-      this.productsService.update(product).subscribe((res) => {
+      this.productsService.update(product).subscribe(res => {
          this.router.navigate(['products', 'list']);
       });
    }

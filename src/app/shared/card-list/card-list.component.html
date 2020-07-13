@@ -4,7 +4,7 @@
       appImgCardHover
       [routerLink]="card.url"
       class="card image-card"
-      [attr.data-content]="card.name"
+      [attr.data-content]="card.name ? card.name : 'no name'"
    >
       <app-img-fallback [src]="card.imgSrc"></app-img-fallback>
    </div>
