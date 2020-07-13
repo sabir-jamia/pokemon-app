@@ -209,6 +209,16 @@
       "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
       "phoneNumber": "1111222",
       "select": "landline"
+    },
+    {
+      "id": "r-lnxAx",
+      "name": "Mohammad Sabir",
+      "description": "ssss",
+      "price": "7.54",
+      "category": "Cloths",
+      "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+      "phoneNumber": "9990722362",
+      "select": "landline"
     }
   ]
 }

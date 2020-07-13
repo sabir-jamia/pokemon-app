@@ -80,7 +80,11 @@ export class ProductFormComponent {
       this.form.reset();
    }
 
-   addNewProduct() {
+   addProduct() {
       this.products.push(this.productForm);
+   }
+
+   removeProduct() {
+      this.products.removeAt(this.products.length - 1);
    }
 }

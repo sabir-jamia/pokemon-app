@@ -181,7 +181,15 @@
          <button
             type="button"
             mat-raised-button
-            (click)="addNewProduct()"
+            (click)="removeProduct()"
+            [disabled]="products.length < 2"
+         >
+            Remove New Product
+         </button>
+         <button
+            type="button"
+            mat-raised-button
+            (click)="addProduct()"
             [disabled]="products.length > 4"
          >
             Add New Product
