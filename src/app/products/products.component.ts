@@ -29,7 +29,6 @@ export class ProductsComponent implements OnInit {
    }
 
    save(products: Product[]) {
-      console.log(products);
       products.forEach(product => {
          if (product.id) {
             this.update(product);

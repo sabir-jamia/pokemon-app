@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonService } from '../core/pokemon/pokemon.service';
-import { Observable, forkJoin } from 'rxjs';
-import { switchMap, map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
    selector: 'app-pokemon',
@@ -32,26 +32,22 @@ export class PokemonComponent implements OnInit {
    loadPokemons() {
       const pokemons$: Observable<any> = this.pokemonService.all(this.page);
 
-      const pokemonDetails$: Observable<any> = pokemons$.pipe(
-         switchMap(({ results }: any) =>
-            forkJoin(
-               results.map(({ url }) => {
-                  const matched = /\/([0-9]+)\/$/.exec(url);
-                  return matched ? this.pokemonService.load(matched[1]) : null;
-               })
-            )
-         )
-      );
+      this.pokemonList$ = pokemons$.pipe(
+         map((response: any) => {
+            const results = [];
+            response.results.forEach(({ name, url }) => {
+               const matched = /\/([0-9]+)\/$/.exec(url);
+               if (!matched) {
+                  return;
+               }
 
-      this.pokemonList$ = forkJoin([pokemons$, pokemonDetails$]).pipe(
-         map(([pokemons, pokemonDetails]) => {
-            const results = pokemons.results.map((item, key) => ({
-               name: item.name,
-               url: `/details/${pokemonDetails[key].id}`,
-               imgSrc: pokemonDetails[key].sprites.front_default,
-            }));
-            const count = pokemons.count;
-            return { count, results };
+               results.push({
+                  name,
+                  url: `/details/${matched[1]}`,
+                  imgSrc: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${matched[1]}.png`,
+               });
+            });
+            return { count: response.results, results };
          })
       );
    }

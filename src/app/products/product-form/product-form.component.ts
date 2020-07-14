@@ -15,7 +15,7 @@ export class ProductFormComponent {
          return;
       }
 
-      this.form.setValue(value);
+      this.form.setValue({ products: [value] });
    }
 
    get productForm() {
@@ -65,7 +65,7 @@ export class ProductFormComponent {
       products: this.formBuilder.array([this.productForm]),
    });
 
-   get products() {
+   get products(): FormArray {
       return this.form.get('products') as FormArray;
    }
 

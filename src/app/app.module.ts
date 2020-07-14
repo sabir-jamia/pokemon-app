@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { MaterialModule } from './material/material.module';
 import { ToolbarModule } from './toolbar/toolbar.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
    declarations: [AppComponent],
@@ -17,6 +19,7 @@ import { ToolbarModule } from './toolbar/toolbar.module';
       CoreModule,
       ToolbarModule,
       AppRoutingModule,
+      ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
    ],
    bootstrap: [AppComponent],
 })

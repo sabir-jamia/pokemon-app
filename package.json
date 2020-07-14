@@ -7,6 +7,7 @@
       "start:client": "ng serve",
       "start:server": "json-server server/db.json",
       "build": "ng build",
+      "prod:build": "ng build --aot=true --buildOptimizer=true --optimization=true --prod=true --progress=true --sourceMap=true",
       "test": "ng test",
       "lint": "ng lint",
       "e2e": "ng e2e"
@@ -24,6 +25,7 @@
       "@angular/platform-browser-dynamic": "~10.0.2",
       "@angular/platform-server": "~10.0.2",
       "@angular/router": "~10.0.2",
+      "@angular/service-worker": "~10.0.2",
       "rxjs": "~6.6.0",
       "tslib": "^2.0.0",
       "zone.js": "~0.10.2"
